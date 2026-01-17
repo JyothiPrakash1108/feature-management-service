@@ -1,5 +1,6 @@
 package com.api.cms.service;
 
+import com.api.cms.enums.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class FeatureAccessService {
         this.featureAccessRepository = featureAccessRepository;
         this.featureRepository = featureRepository;
     }
-    public boolean isFeatureAccessibleToRole(String featureName, Long roleId) {
-        return featureAccessRepository.existsByFeatureNameAndRoleId(featureName, roleId);
+    public boolean isFeatureAccessibleToRole(String featureName, Role role) {
+        return featureAccessRepository.existsByFeatureNameAndRole(featureName, role);
     }
 }

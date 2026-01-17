@@ -1,5 +1,6 @@
 package com.api.cms.controller;
 
+import com.api.cms.enums.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +23,8 @@ public class FeatureAccessController {
         this.featureAccessService = featureAccessService;
     }
     @GetMapping("/check")
-    public ResponseEntity<FeatureCheckResponse> isFeatureAccessibleToRole(@RequestParam String featureName,@RequestParam Long roleId) {
-        boolean isAccessible = featureAccessService.isFeatureAccessibleToRole(featureName, roleId);
+    public ResponseEntity<FeatureCheckResponse> isFeatureAccessibleToRole(@RequestParam String featureName,@RequestParam Role role) {
+        boolean isAccessible = featureAccessService.isFeatureAccessibleToRole(featureName, role);
         FeatureCheckResponse response = new FeatureCheckResponse(isAccessible);
         return ResponseEntity.ok(response);
     }
