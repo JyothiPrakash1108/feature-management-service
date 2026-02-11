@@ -18,7 +18,7 @@ import javax.crypto.SecretKey;
 
 public class JWTUtil {
     // Minimum 64 bytes for HS512 to ensure strong cryptographic guardar
-    private static final String SECRET_KEY = "multiple_features_management_service_secret_key_must_be_at_least_64_chars_long";
+    private static final String SECRET_KEY = "{secret_key_must_be_at_least_64_chars_long}";
     private static final long EXPIRATION_MS = 24 * 60 * 60 * 1000;
     private static final SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS512;
     
